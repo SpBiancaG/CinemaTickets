@@ -4,12 +4,14 @@
     {
 
 
-        None,
+       
         Action = 1,
         Comedy,
         Cartoon,
         Drama,
-        Documentary
+        Documentary,
+        Horror,
+        Fantasy
 
 
     }

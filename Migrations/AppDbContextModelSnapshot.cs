@@ -101,13 +101,10 @@ namespace CinemaTickets.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Price")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<int>("ProducerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProducerId1")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
@@ -118,8 +115,6 @@ namespace CinemaTickets.Migrations
                     b.HasIndex("CinemaId");
 
                     b.HasIndex("ProducerId");
-
-                    b.HasIndex("ProducerId1");
 
                     b.ToTable("Movies");
                 });
@@ -172,15 +167,9 @@ namespace CinemaTickets.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CinemaTickets.Models.Cinema", "Producer")
-                        .WithMany()
-                        .HasForeignKey("ProducerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CinemaTickets.Models.Producer", null)
+                    b.HasOne("CinemaTickets.Models.Producer", "Producer")
                         .WithMany("Movies")
-                        .HasForeignKey("ProducerId1")
+                        .HasForeignKey("ProducerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

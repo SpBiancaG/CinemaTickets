@@ -57,6 +57,9 @@ namespace CinemaTickets
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            //seed database
+            AppDbInitializer.Seed(app);
         }
     }
 }
