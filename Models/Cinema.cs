@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CinemaTickets.Models
 {
@@ -9,5 +10,9 @@ namespace CinemaTickets.Models
         public string Logo { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+
+        //relatii intre tabele
+
+        public List<Movie> Movies { get; set; }
     }
 }

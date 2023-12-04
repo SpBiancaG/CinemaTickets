@@ -1,6 +1,8 @@
-﻿using CinemaTickets.Data;
+﻿using CinemaTickets.Data.Enums;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CinemaTickets.Models
 {
@@ -18,6 +20,18 @@ namespace CinemaTickets.Models
         public MovieCategory MovieCategory { get; set;}
 
         //relational data
+
+        public List<Actor_Movie> Actors_Movies { get; set; }
+
+        //Cinema
+        public int CinemaId { get; set; }
+        [ForeignKey("CinemaId")]
+        public Cinema Cinema { get; set; }
+
+        //Cinema
+        public int ProducerId { get; set; }
+        [ForeignKey("ProducerId")]
+        public Cinema Producer { get; set; }
 
     }
 }
