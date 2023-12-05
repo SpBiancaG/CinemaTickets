@@ -84,7 +84,7 @@ namespace CinemaTickets.Data
                         {
                             FullName = "Tom Blyth",
                             Bio = "Tom Keir Blyth este un actor englez. Printre filmele sale se numără Scott și Sid, Benediction și The Hunger Games: The Ballad of Songbirds & Snakes.",
-                            ProfilePictureURL = "Images\\Actor\\TomBlyth.png"
+                            ProfilePictureURL = "~/Images/Actor/TomBlyth.png"
                         },
                         new Actor()
                         {
