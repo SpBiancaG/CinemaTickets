@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaTickets.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231204131418_Initial")]
-    partial class Initial
+    [Migration("20231205092013_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

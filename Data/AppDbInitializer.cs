@@ -14,9 +14,9 @@ namespace CinemaTickets.Data
     {
         public static void Seed(IApplicationBuilder applicationBuilder)
         {
-            using (var serviceScope =applicationBuilder.ApplicationServices.CreateScope())
+            using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
-                var context= serviceScope.ServiceProvider.GetService<AppDbContext>();
+                var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
                 context.Database.EnsureCreated();
                 //Cinema
                 if (!context.Cinemas.Any())
@@ -105,7 +105,7 @@ namespace CinemaTickets.Data
                             Bio = "Timothée Hal Chalamet este un actor american născut în New York, dintr-un tată francez și o mamă americancă. Cariera lui de actor s-a cristalizat în scurt-metraje, înainte de a apărea în serialul de televiziune Homeland.",
                             ProfilePictureURL = "Images\\Actor\\TimothéeChalamet.png"
                          },
-                         
+
                     });
                     context.SaveChanges();
                 }
@@ -139,7 +139,7 @@ namespace CinemaTickets.Data
                             Bio = "Francis Lawrence este un regizor american și producător născut pe 26 martie 1971 la Viena, Austria, care și-a făcut un nume regizând videoclipuri muzicale și reclame.",
                             ProfilePictureURL = "Images\\Producer\\FrancisLawrence.png"
                         },
-                       
+
                          new Producer()
                         {
                             FullName = "Paul King",
@@ -214,9 +214,9 @@ namespace CinemaTickets.Data
                             ProducerId = 5,
                             MovieCategory = MovieCategory.Fantasy
                         }
-                      
+
                     });
-                    
+
                     context.SaveChanges();
                 }
                 //Actors & Movies
@@ -227,45 +227,45 @@ namespace CinemaTickets.Data
                         new Actor_Movie()
                         {
                             ActorId = 1,
-                            MovieId = 7
+                            MovieId = 1
                         },
                         new Actor_Movie()
                         {
                             ActorId=2,
-                            MovieId=7
+                            MovieId=1
                         }
                         ,
                         new Actor_Movie()
                         {
                             ActorId = 3,
-                            MovieId = 8
+                            MovieId = 2
                         },
 
                          new Actor_Movie()
                         {
                             ActorId = 4,
-                            MovieId = 9
+                            MovieId = 3
                         },
                          new Actor_Movie()
                         {
                             ActorId = 5,
-                            MovieId = 9
+                            MovieId = 3
                         },
 
                         new Actor_Movie()
                         {
                             ActorId = 6,
-                            MovieId = 10
+                            MovieId = 4
                         },
-                        //new Actor_Movie()
-                        //{
-                        //    ActorId = 7,
-                        //    MovieId = 5
-                        //}
-                       
+                        new Actor_Movie()
+                        {
+                            ActorId = 7,
+                            MovieId = 5
+                        }
 
 
-          
+
+
                     });
                     context.SaveChanges();
                 }
