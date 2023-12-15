@@ -26,31 +26,31 @@ namespace CinemaTickets.Data
                         new Cinema()
                         {
                             Name = "Cinema One",
-                            Logo = "Images\\Cinema\\CinemaOne.png",
+                            Logo = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
                             Description = "Cinema One: destinație de distracție și un univers în care vei putea viziona filmele momentului."
                         },
                         new Cinema()
                         {
                             Name = "Cinema City",
-                            Logo = "Images\\Cinema\\CinemaCity.png",
+                            Logo = "http://dotnethow.net/images/cinemas/cinema-2.jpeg",
                             Description = "La Cinema City, te bucuri mereu de filme noi, in cele mai spectaculoase formate."
                         },
                         new Cinema()
                         {
                             Name = "Cinema Ateneu",
-                            Logo = "Images\\Cinema\\CinemaAteneu.png",
+                            Logo = "http://dotnethow.net/images/cinemas/cinema-3.jpeg",
                             Description = "La noi vezi ce la alții nu găsești."
                         },
                         new Cinema()
                         {
                             Name = "Cineplexx",
-                            Logo = "Images\\Cinema\\Cineplexx.png",
+                            Logo = "http://dotnethow.net/images/cinemas/cinema-4.jpeg",
                             Description = "Un loc magic pentru iubitorii de film."
                         },
                         new Cinema()
                         {
                             Name = "Cinema Victoria",
-                            Logo = "Images\\Cinema\\Cineplexx.png",
+                            Logo = "http://dotnethow.net/images/cinemas/cinema-5.jpeg",
                             Description = "O scenă nouă pentru film de artă, teatru independent, evenimente ale comunității."
                         },
                     });
@@ -65,45 +65,46 @@ namespace CinemaTickets.Data
                         {
                             FullName = "Ariana DeBose",
                             Bio = "Ariana DeBose este o actriță americană născută pe 25 ianuarie 1991 în Wilmington, Carolina de Nord, SUA.Este cunoscută pentru rolurile sale atât pe scenă cât și pe ecran, inclusiv în producția originală de pe Broadway a musicalului Hamilton (2015-2016)",
-                            ProfilePictureURL = "Images\\Actor\\ArianaDeBose.png"
+                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-2.jpeg"
 
                         },
                         new Actor()
                         {
                             FullName = "Chris Pine",
                             Bio = "Chris Pine, născut pe 26 august 1980 la Los Angeles, California, SUA, este un actor american renumit pentru portretizarea personajelor inteligente și experimentate",
-                            ProfilePictureURL = "Images\\Actor\\ChrisPine.png"
+                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-2.jpeg"
                         },
                         new Actor()
                         {
                             FullName = "Rick Hoffman",
                             Bio = "Richard Edward Hoffman este un actor american. Este cunoscut pentru rolul lui Jerry Best în sitcomul Fox The Bernie Mac Show",
-                            ProfilePictureURL = "Images\\Actor\\RickHoffman.png"
+                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-2.jpeg"
                         },
                         new Actor()
                         {
                             FullName = "Tom Blyth",
                             Bio = "Tom Keir Blyth este un actor englez. Printre filmele sale se numără Scott și Sid, Benediction și The Hunger Games: The Ballad of Songbirds & Snakes.",
-                            ProfilePictureURL = "~/Images/Actor/TomBlyth.png"
+                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-2.jpeg"
                         },
                         new Actor()
                         {
                             FullName = "Rachel Zegler",
                             Bio = "Rachel Anne Zegler este o actriță și cântăreață americană. Ea a devenit cunoscută odată cu debutul ei în film jucând pe María în adaptarea muzicală a lui Steven Spielberg West Side Story.",
-                            ProfilePictureURL = "Images\\Actor\\RachelZegler.png"
+                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-2.jpeg"
                         },
 
                          new Actor()
                         {
                             FullName = "Joaquin Phoenix",
                             Bio = "Joaquín Rafael Phoenix, cunoscut în trecut ca Leaf Phoenix, este un actor, producător, regizor de videoclipuri, muzician și activist american.",
-                            ProfilePictureURL = "Images\\Actor\\JoaquinPhoenix.png"
+                            ProfilePictureURL = "http://dotnethow.net/images/cinemas/cinema-2.jpeg"
                         },
                          new Actor()
                          {
                             FullName = "Timothée Chalamet",
                             Bio = "Timothée Hal Chalamet este un actor american născut în New York, dintr-un tată francez și o mamă americancă. Cariera lui de actor s-a cristalizat în scurt-metraje, înainte de a apărea în serialul de televiziune Homeland.",
-                            ProfilePictureURL = "Images\\Actor\\TimothéeChalamet.png"
+                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-2.jpeg"
+                            //ProfilePictureURL = "https://images.businessoffashion.com/profiles/asset/1682627231053862/timothe__e_chalamet-1744964757921336.jpeg?auto=format%2Ccompress&crop=top&fit=crop&h=576&w=1024"
                          },
 
                     });

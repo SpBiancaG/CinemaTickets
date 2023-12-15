@@ -7,14 +7,21 @@ namespace CinemaTickets.Models
     {
         [Key]
         public int Id { get; set; }
-        [Display(Name ="Profile Picture URL")]
-        public string ProfilePictureURL{ get; set; }
-        [Display(Name = "Full Name")]
-        public string FullName { get; set;}
+
+        [Display(Name = "Profile picture")]
+        [Required(ErrorMessage = "Profile picture is required")]
+        public string ProfilePictureURL { get; set; }
+
+        [Display(Name = "Name")]
+        [Required(ErrorMessage = "Name is required")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "The name is too short or too long")]
+        public string FullName { get; set; }
+
         [Display(Name = "Biography")]
-        public string Bio { get; set;}
-        
-        //relatii intre tabele
+        [Required(ErrorMessage = "Biography is required")]
+        public string Bio { get; set; }
+
+        //aici am adaugat legatura tabelului actor cu tabela movie
         public List<Actor_Movie> Actors_Movies { get; set; }
 
     }
