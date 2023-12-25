@@ -26,31 +26,31 @@ namespace CinemaTickets.Data
                         new Cinema()
                         {
                             Name = "Cinema One",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-1.jpeg",
+                            Logo = "https://www.cinemaone.ro/assets/img/Logo-Cinema-One-Laserplex@2x.jpg",
                             Description = "Cinema One: destinație de distracție și un univers în care vei putea viziona filmele momentului."
                         },
                         new Cinema()
                         {
                             Name = "Cinema City",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-2.jpeg",
+                            Logo = "https://cdn-ukwest.onetrust.com/logos/5922c8a7-c44a-4864-9773-804dd97f3b15/f34055f9-6c0b-4d74-8bbd-5408ead3b445/c6feb110-9eb7-4055-be06-409f0d2c5223/CCrounded.png",
                             Description = "La Cinema City, te bucuri mereu de filme noi, in cele mai spectaculoase formate."
                         },
                         new Cinema()
                         {
                             Name = "Cinema Ateneu",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-3.jpeg",
+                            Logo = "https://cinemaiasi.ro/wp-content/uploads/2023/07/198824619_102755102046058_1042560071214864447_n.jpg",
                             Description = "La noi vezi ce la alții nu găsești."
                         },
                         new Cinema()
                         {
                             Name = "Cineplexx",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-4.jpeg",
+                            Logo = "https://s3proxygw.cineplexx.at/vapc-ro-pimcore/assets/_default_upload_bucket/89339725_136908084528296_2319869874186223616_n_1.jpg",
                             Description = "Un loc magic pentru iubitorii de film."
                         },
                         new Cinema()
                         {
                             Name = "Cinema Victoria",
-                            Logo = "http://dotnethow.net/images/cinemas/cinema-5.jpeg",
+                            Logo = "https://cdn.cluj.com/cluj/cv-750x380.png",
                             Description = "O scenă nouă pentru film de artă, teatru independent, evenimente ale comunității."
                         },
                     });
@@ -65,46 +65,46 @@ namespace CinemaTickets.Data
                         {
                             FullName = "Ariana DeBose",
                             Bio = "Ariana DeBose este o actriță americană născută pe 25 ianuarie 1991 în Wilmington, Carolina de Nord, SUA.Este cunoscută pentru rolurile sale atât pe scenă cât și pe ecran, inclusiv în producția originală de pe Broadway a musicalului Hamilton (2015-2016)",
-                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-2.jpeg"
+                            ProfilePictureURL = "https://hips.hearstapps.com/hmg-prod/images/gettyimages-1357818515.jpg"
 
                         },
                         new Actor()
                         {
                             FullName = "Chris Pine",
                             Bio = "Chris Pine, născut pe 26 august 1980 la Los Angeles, California, SUA, este un actor american renumit pentru portretizarea personajelor inteligente și experimentate",
-                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-2.jpeg"
+                            ProfilePictureURL = "https://static.wikia.nocookie.net/disney/images/2/2b/Chris_Pine.jpg/revision/latest?cb=20180814230137"
                         },
                         new Actor()
                         {
                             FullName = "Rick Hoffman",
                             Bio = "Richard Edward Hoffman este un actor american. Este cunoscut pentru rolul lui Jerry Best în sitcomul Fox The Bernie Mac Show",
-                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-2.jpeg"
+                            ProfilePictureURL = "https://150074292.v2.pressablecdn.com/wp-content/uploads/2022/04/Rick-Hoffman-768x1152.jpg"
                         },
                         new Actor()
                         {
                             FullName = "Tom Blyth",
                             Bio = "Tom Keir Blyth este un actor englez. Printre filmele sale se numără Scott și Sid, Benediction și The Hunger Games: The Ballad of Songbirds & Snakes.",
-                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-2.jpeg"
+                            ProfilePictureURL = "https://images.hellomagazine.com/horizon/square/d89e749bd6ba-tom-blyth-the-hunger-games-premiere.jpg"
                         },
                         new Actor()
                         {
                             FullName = "Rachel Zegler",
                             Bio = "Rachel Anne Zegler este o actriță și cântăreață americană. Ea a devenit cunoscută odată cu debutul ei în film jucând pe María în adaptarea muzicală a lui Steven Spielberg West Side Story.",
-                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-2.jpeg"
+                            ProfilePictureURL = "https://variety.com/wp-content/uploads/2023/05/rachel-zegler.jpg?w=1000"
                         },
 
                          new Actor()
                         {
                             FullName = "Joaquin Phoenix",
                             Bio = "Joaquín Rafael Phoenix, cunoscut în trecut ca Leaf Phoenix, este un actor, producător, regizor de videoclipuri, muzician și activist american.",
-                            ProfilePictureURL = "http://dotnethow.net/images/cinemas/cinema-2.jpeg"
+                            ProfilePictureURL = "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/69768_v9_bc.jpg"
                         },
                          new Actor()
                          {
                             FullName = "Timothée Chalamet",
                             Bio = "Timothée Hal Chalamet este un actor american născut în New York, dintr-un tată francez și o mamă americancă. Cariera lui de actor s-a cristalizat în scurt-metraje, înainte de a apărea în serialul de televiziune Homeland.",
-                            ProfilePictureURL = "http://dotnethow.net/images/actors/actor-2.jpeg"
-                            //ProfilePictureURL = "https://images.businessoffashion.com/profiles/asset/1682627231053862/timothe__e_chalamet-1744964757921336.jpeg?auto=format%2Ccompress&crop=top&fit=crop&h=576&w=1024"
+                            ProfilePictureURL = "https://qph.cf2.quoracdn.net/main-qimg-8a1467b427078b62c6a0469350f1873f"
+
                          },
 
                     });
@@ -119,33 +119,33 @@ namespace CinemaTickets.Data
                         {
                             FullName = "Eli Roth",
                             Bio = "Eli Raphael Roth este un regizor, scenarist, producător și actor american. Ca regizor și producător, el este cel mai strâns asociat cu genul horror, și anume filmele splatter.",
-                            ProfilePictureURL = "Images\\Producer\\EliRoth.png"
+                            ProfilePictureURL = "https://m.media-amazon.com/images/M/MV5BMTkyMjU0NDk2OF5BMl5BanBnXkFtZTgwMDY4MDE4NTM@._V1_.jpg"
 
                         },
                         new Producer()
                         {
                             FullName = "Ridley Scott",
                             Bio = "Sir Ridley Scott KBE este un regizor de filme britanic considerat unul dintre cei influenți și mai renumiți regizori contemporani, cunoscut și recunoscut pentru stilul vizual deosebit.",
-                            ProfilePictureURL = "Images\\Producer\\RidleyScott.png"
+                            ProfilePictureURL = "https://hips.hearstapps.com/hmg-prod/images/ridley-scott-gettyimages-1339598287.jpg"
                         },
                         new Producer()
                         {
                             FullName = "Chris Buck",
                             Bio = "Chris Buck e un producator de filme animate din Kansas. Printre filmele produse se numara Tarzan, Frozen si Pocahontas.",
-                            ProfilePictureURL = "Images\\Producer\\ChrisBuck.png"
+                            ProfilePictureURL = "https://upload.wikimedia.org/wikipedia/commons/3/33/Frozenfeverdirectors_%28cropped%29.JPG"
                         },
                         new Producer()
                         {
                             FullName = "Francis Lawrence",
                             Bio = "Francis Lawrence este un regizor american și producător născut pe 26 martie 1971 la Viena, Austria, care și-a făcut un nume regizând videoclipuri muzicale și reclame.",
-                            ProfilePictureURL = "Images\\Producer\\FrancisLawrence.png"
+                            ProfilePictureURL = "https://resizing.flixster.com/pjE8vldC9dHK8sRoeU5Ej31dJm0=/218x280/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/321329_v9_bd.jpg"
                         },
 
                          new Producer()
                         {
                             FullName = "Paul King",
                             Bio = "Paul King este un scriitor și regizor britanic. Lucrează în televiziune, film și teatru și este specializat în comedie.",
-                            ProfilePictureURL = "Images\\Producer\\PaulKing.png"
+                            ProfilePictureURL = "https://m.media-amazon.com/images/M/MV5BMTUwODA0NjUyNV5BMl5BanBnXkFtZTgwODk3Mzk5MzE@._V1_.jpg"
                         }
                     });
                     context.SaveChanges();
