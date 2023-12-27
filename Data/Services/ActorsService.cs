@@ -29,7 +29,7 @@ namespace CinemaTickets.Data.Services
 
         public async Task<IEnumerable<Actor>> GetAllAsync()
         {
-            var result =await _context.Actors.ToListAsync();
+            var result = await _context.Actors.ToListAsync();
             return result;
         }
 
