@@ -31,6 +31,7 @@ namespace CinemaTickets
 
             //configurarea serviciilor
             services.AddScoped<IActorsService, ActorsService>();
+            services.AddScoped<IProducersService, ProducersService>();
 
             services.AddControllersWithViews();
         }

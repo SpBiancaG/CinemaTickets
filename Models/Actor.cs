@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using CinemaTickets.Data.Base;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CinemaTickets.Models
 {
-    public class Actor
+    public class Actor:IEntityBase
     {
         [Key]
         public int Id { get; set; }
