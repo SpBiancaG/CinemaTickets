@@ -41,5 +41,10 @@ namespace CinemaTickets.Data
         public DbSet<Cinema> Cinemas { get; set; }
         public DbSet<Producer> Producers { get; set; }
 
+        //orders related tables
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Order> OrderItems { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+
     }
 }
