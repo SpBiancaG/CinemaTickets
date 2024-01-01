@@ -1,17 +1,47 @@
 ﻿@model Cinema
 @{
-    ViewData["Title"] = "Delete cinema";
+    ViewData["Title"] = "Details of the cinema";
 }
+
+<style>
+    body {
+        background-color: #F2F2F2;
+        color: grey;
+        font-family: 'Century Schoolbook', sans-serif;
+    }
+
+    .form-group label.control-label {
+        color: grey;
+    }
+
+    .text-danger {
+        color: MediumVioletRed;
+    }
+
+    .btn-outline-success {
+        background-color: MediumVioletRed;
+        color: white;
+    }
+
+    .btn-outline-secondary {
+        background-color: grey;
+        color: white;
+    }
+
+        .btn-outline-success:hover,
+        .btn-outline-secondary:hover {
+            background-color: MediumVioletRed;
+            color: white;
+        }
+</style>
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Delete confirmation for @Model.Name's details </h1>
+            <h1 style="color: mediumvioletred;">@Model.Name's details</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
-
-
                 <div class="form-group text-center">
                     <img id="LogoPreview" style="width: 200px; height: 200px; border-radius: 50%;" />
                 </div>
@@ -35,20 +65,16 @@
                 </div>
 
                 <div class="form-group">
-                    <form asp-action="Delete">
-                        <input type="hidden" asp-for="Id" />
-                        <input type="submit" value="Confirm" class="btn btn-outline-danger float-right" />
-                    </form>
-
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <a class="btn btn-outline-success float-right" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                    }
                     <a class="btn btn-outline-secondary" asp-action="Index">See all</a>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-
-
 
 @section Scripts{
     <script>
@@ -56,6 +82,5 @@
             var output = document.getElementById("LogoPreview");
             output.src = $("#Logo").val();
         });
-
     </script>
 }

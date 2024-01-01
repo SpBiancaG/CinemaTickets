@@ -1,9 +1,10 @@
 ﻿using CinemaTickets.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CinemaTickets.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -42,8 +43,11 @@ namespace CinemaTickets.Data
         public DbSet<Producer> Producers { get; set; }
 
         //orders related tables
+        //order tickets
+
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Order> OrderItems { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
     }

@@ -1,7 +1,9 @@
 ﻿@model string;
-
-<div style="position: fixed; right: 25px; bottom: 40px;">
-    <a asp-controller="@Model" asp-action="Create" class="btn btn-success btn-lg">
-        <i class="bi bi-plus-circle"></i> Add New
-    </a>
-</div>
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <div style="position: fixed; right: 25px; bottom: 40px;">
+        <a asp-controller="@Model" asp-action="Create" class="btn btn-outline-secondary btn-lg" style="background-color: mediumvioletred; color: white;">
+            <i class="bi bi-plus-circle"></i> Add New
+        </a>
+    </div>
+}

@@ -3,10 +3,42 @@
     ViewData["Title"] = "Edit cinema";
 }
 
+<style>
+    body {
+        background-color: #F2F2F2;
+        color: grey;
+        font-family: 'Century Schoolbook', sans-serif;
+    }
+
+    .form-group label.control-label {
+        color: grey;
+    }
+
+    .text-danger {
+        color: MediumVioletRed;
+    }
+
+    .btn-outline-success {
+        background-color: MediumVioletRed;
+        color: white;
+    }
+
+    .btn-outline-secondary {
+        background-color: grey;
+        color: white;
+    }
+
+        .btn-outline-success:hover,
+        .btn-outline-secondary:hover {
+            background-color: MediumVioletRed;
+            color: white;
+        }
+</style>
+
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Edit cinema</h1>
+            <h1 style="color: mediumvioletred">Edit cinema</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
@@ -15,19 +47,16 @@
                     <div class="form-group text-center">
                         <img id="CinemaLogoPreview" style="width: 200px; height: 200px; border-radius: 50%;" />
                     </div>
-
                     <div class="form-group">
                         <label asp-for="Logo" class="control-label"></label>
                         <input asp-for="Logo" class="form-control" />
                         <span asp-validation-for="Logo" class="text-danger"></span>
                     </div>
-
                     <div class="form-group">
                         <label asp-for="Name" class="control-label"></label>
                         <input asp-for="Name" class="form-control" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
-
                     <div class="form-group">
                         <label asp-for="Description" class="control-label"></label>
                         <input asp-for="Description" class="form-control" />
@@ -35,7 +64,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Update" class="btn btn-outline-success float-right" />
+                        <input type="submit" value="Update" class="btn btn-outline-secondary float-right" />
                         <a class="btn btn-outline-secondary" asp-action="Index">See all</a>
                     </div>
                 </form>
@@ -43,8 +72,6 @@
         </div>
     </div>
 </div>
-
-
 
 @section Scripts{
     <script>
@@ -55,6 +82,6 @@
         $("#Logo").on("change", function () {
             var output = document.getElementById("CinemaLogoPreview");
             output.src = $(this).val();
-        })
+        });
     </script>
 }

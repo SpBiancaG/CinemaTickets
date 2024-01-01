@@ -1,24 +1,28 @@
 ﻿using CinemaTickets.Data;
 using CinemaTickets.Data.Services;
+using CinemaTickets.Data.Static;
 using CinemaTickets.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
 
 namespace CinemaTickets.Controllers
-{
+{   [Authorize(Roles = UserRoles.Admin)]
     public class ActorsController : Controller
-    {
+    {   
         private readonly IActorsService _service;
-
+        
         public ActorsController(IActorsService service)
         {
             _service = service;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var data = await _service.GetAllAsync();
@@ -41,7 +45,7 @@ namespace CinemaTickets.Controllers
 			await _service.AddAsync(actor);
 			return RedirectToAction(nameof(Index));
 		}
-
+        [AllowAnonymous]
         //Get: Actors/details/1
         public async Task<IActionResult> Details(int id)
         {

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaTickets.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231229162022_Order_And_OrderItem_Added")]
-    partial class Order_And_OrderItem_Added
+    [Migration("20240101114917_Orders")]
+    partial class Orders
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -143,7 +143,7 @@ namespace CinemaTickets.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("CinemaTickets.Models.OrderItem", b =>
@@ -171,7 +171,7 @@ namespace CinemaTickets.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderItem");
+                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("CinemaTickets.Models.Producer", b =>

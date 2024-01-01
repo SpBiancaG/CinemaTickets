@@ -1,49 +1,67 @@
 ﻿@model Movie
 
-
-@*Define ViewData*@
 @{
     ViewData["Title"] = "Movie details";
 }
 
+<style>
+    .card-header {
+        background-color: darkgray;
+    }
 
+    .card-title {
+        color: mediumvioletred;
+    }
+
+    .card-text-color {
+        color: gray;
+    }
+
+    .btn-primary {
+        background-color: mediumvioletred;
+        color: white;
+    }
+
+        .btn-primary:hover {
+            background-color: darkviolet;
+        }
+</style>
 
 <div class="row">
-
     <div class="col-md-8 offset-2">
         <div class="card mb-12">
             <div class="row g-0">
                 <div class="col-md-12">
-                    <div class="card-header text-white bg-info">
+                    <div class="card-header text-white bg-darkgray">
                         <p class="card-text">
-                            <h5 class="card-title">
+                            <h5 class="card-title text-mediumvioletred">
                                 @Model.Name
                             </h5>
                         </p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="@Model.ImageURL" style="width:100%; height:100%" alt="@Model.Name">
+                    <img src="@Model.ImageURL" style="width: 100%; height: 100%;" alt="@Model.Name">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <p class="card-text">@Model.Description</p>
-                        <p class="card-text">
+                        <p class="card-text card-text-color">@Model.Description</p>
+                        <p class="card-text card-text-color">
                             <b>Cinema: </b>
-                            <a asp-controller="Cinemas" asp-action="Details" asp-route-id="@Model.CinemaId">
+                            <a asp-controller="Cinemas" asp-action="Details" asp-route-id="@Model.CinemaId" class="text-mediumvioletred">
                                 @Model.Cinema.Name
                             </a>
                         </p>
-                        <p class="card-text">
+                        <p class="card-text card-text-color">
                             <b>Producer: </b>
-                            <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.ProducerId">
+                            <a asp-controller="Producers" asp-action="Details" asp-route-id="@Model.ProducerId" class="text-mediumvioletred">
                                 @Model.Producer.FullName
                             </a>
                         </p>
-                        <p class="card-text"><b>Category: </b>@Model.MovieCategory</p>
-                        <p class="card-text"><b>Start Date: </b>@Model.StartDate.ToString("dd MMM yyyy")</p>
-                        <p class="card-text"><b>End Date: </b>@Model.EndDate.ToString("dd MMM yyyy")</p>
-                        <p class="card-text ">
+                        <p class="card-text card-text-color"><b>Category: </b>@Model.MovieCategory</p>
+                        <p class="card-text card-text-color"><b>Start Date: </b>@Model.StartDate.ToString("dd MMM yyyy")</p>
+                        <p class="card-text card-text-color"><b>End Date: </b>@Model.EndDate.ToString("dd MMM yyyy")</p>
+                        <p class="card-text card-text-color">
                             <b>Status: </b>
                             @if (DateTime.Now >= Model.StartDate && DateTime.Now <= Model.EndDate)
                             {
@@ -58,7 +76,7 @@
                                 <span class="badge bg-primary text-white">UPCOMING</span>
                             }
                         </p>
-                        <p class="card-text">
+                        <p class="card-text card-text-color">
                             <b>Actors: </b>
                             <hr />
                             <div class="row">
@@ -67,7 +85,7 @@
                                     <div class="card-columns text-center">
                                         <img class="border-info rounded-circle" src="@actor.Actor.ProfilePictureURL" style="max-width: 150px" />
                                         <br />
-                                        <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.ActorId"> @actor.Actor.FullName</a>
+                                        <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.ActorId" class="text-mediumvioletred"> @actor.Actor.FullName</a>
                                     </div>
                                 }
                             </div>
@@ -75,17 +93,16 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div class="card-footer ">
+                    <div class="card-footer">
                         <p class="card-text">
-                            <a class="btn btn-outline-primary float-right" asp-action="Index">
+                            <a class="btn btn-outline-dark float-right" asp-action="Index">
                                 Back to List
                             </a>
-                            <a class="btn btn-success text-white"><i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))</a>
+                            <a class="btn bg-dark btn-outline-dark  text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@Model.Id"><i class="bi bi-cart-plus"></i> Add to Cart (Price @Model.Price.ToString("c"))</a>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>

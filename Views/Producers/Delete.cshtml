@@ -1,29 +1,74 @@
 ﻿@model Producer
-
 @{
-    ViewData["Title"] = "Delete producer";
+    ViewData["Title"] = "Delete Producer";
 }
+
+<style>
+    body {
+        background-color: #F2F2F2;
+        color: saddlebrown;
+        font-family: 'Century Schoolbook', sans-serif;
+    }
+
+    .form-group label {
+        color: mediumvioletred;
+    }
+
+    .form-control {
+        background-color: darkgrey;
+        color: white;
+    }
+
+    .text-danger {
+        color: #DC3545;
+    }
+
+    .btn-outline-danger {
+        background-color: white;
+        color: #DC3545;
+        border-color: #DC3545;
+    }
+
+        .btn-outline-danger:hover {
+            background-color: #DC3545;
+            color: white;
+        }
+
+    .btn-outline-secondary {
+        background-color: white;
+        color: mediumvioletred;
+        border-color: mediumvioletred;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: mediumvioletred;
+            color: white;
+        }
+</style>
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Delete confirmation for @Model.FullName</h1>
+            <h1>Delete confirmation for @Model.FullName's details</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
                 <div class="form-group text-center">
-                    <img class="border-info rounded-circle" style="max-width: 150px" id="ProfilePicturePreview" />
+                    <img id="ProfilePicturePreview" style="width: 200px; height: 200px; border-radius: 50%;" />
                 </div>
+
                 <div class="form-group">
                     <label asp-for="ProfilePictureURL" class="control-label"></label>
                     <input asp-for="ProfilePictureURL" class="form-control" readonly />
                     <span asp-validation-for="ProfilePictureURL" class="text-danger"></span>
                 </div>
+
                 <div class="form-group">
                     <label asp-for="FullName" class="control-label"></label>
                     <input asp-for="FullName" class="form-control" readonly />
                     <span asp-validation-for="FullName" class="text-danger"></span>
                 </div>
+
                 <div class="form-group">
                     <label asp-for="Bio" class="control-label"></label>
                     <input asp-for="Bio" class="form-control" readonly />
@@ -33,20 +78,21 @@
                 <div class="form-group">
                     <form asp-action="Delete">
                         <input type="hidden" asp-for="Id" />
-                        <input type="submit" value="Confirm" class="btn btn-danger float-right" />
+                        <input type="submit" value="Confirm" class="btn btn-outline-danger float-right" />
                     </form>
-                    <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+
+                    <a class="btn btn-outline-secondary" asp-action="Index">See all</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-@section Scripts {
+@section Scripts{
     <script>
         $(document).ready(function () {
-            var output = document.getElementById('ProfilePicturePreview');
+            var output = document.getElementById("ProfilePicturePreview");
             output.src = $("#ProfilePictureURL").val();
-        })
+        });
     </script>
 }

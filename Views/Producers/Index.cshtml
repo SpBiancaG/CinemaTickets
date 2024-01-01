@@ -1,32 +1,86 @@
 ﻿@model IEnumerable<Producer>
 
-@* Define ViewData *@
 @{
     ViewData["Title"] = "List of producers";
 }
 
+<style>
+    body {
+        background-color: DimGrey;
+        font-family: 'Century Schoolbook', sans-serif;
+    }
+
+    .table th {
+        background-color: mediumvioletred;
+        color: white;
+    }
+
+    .table td {
+        vertical-align: middle;
+        background-color: white;
+    }
+
+    .rounded-circle {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+    }
+
+    .btn-outline-primary {
+        background-color: white;
+        color: mediumvioletred;
+        border-color: mediumvioletred;
+    }
+
+        .btn-outline-primary:hover {
+            background-color: mediumvioletred;
+            color: white;
+        }
+
+    .btn-outline-info {
+        background-color: white;
+        color: mediumvioletred;
+        border-color: mediumvioletred;
+    }
+
+        .btn-outline-info:hover {
+            background-color: mediumvioletred;
+            color: white;
+        }
+
+    .btn-danger {
+        background-color: #DC3545;
+        color: white;
+    }
+
+        .btn-danger:hover {
+            background-color: #C82333;
+            color: white;
+        }
+</style>
+
 <div class="container">
-
-    <div class="row justify-content-center">
-
+    <div class="row justify-content-">
         <div class="col-md-12">
-
             <table class="table">
                 <thead>
                     <tr class="text-center">
-                        <th style="width: 15%;">@Html.DisplayNameFor(model => model.ProfilePictureURL)</th>
-                        <th style="width: 20%;">@Html.DisplayNameFor(model => model.FullName)</th>
-                        <th style="width: 35%;">@Html.DisplayNameFor(model => model.Bio)</th>
-                        <th style="width: 30%;">More</th>
+                        <th style="width: 25%;">@Html.DisplayNameFor(model => model.ProfilePictureURL)</th>
+                        <th style="width: 25%;">@Html.DisplayNameFor(model => model.FullName)</th>
+                        <th style="width: 25%;">@Html.DisplayNameFor(model => model.Bio)</th>
+
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <th style="width: 25%;">More</th>
+                        }
                     </tr>
                 </thead>
-
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr class="text-center">
-                            <td class="align-middle producer-image-wrapper">
-                                <img class="rounded-circle producer-image"
+                            <td class="align-middle">
+                                <img class="rounded-circle"
                                      src="@item.ProfilePictureURL"
                                      alt="@item.FullName">
                             </td>
@@ -36,37 +90,19 @@
                             <td class="align-middle">
                                 @Html.DisplayFor(modelItem => item.Bio)
                             </td>
-                            <td class="align-middle">
-                                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edit</a>
-                                <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Details</a>
-                                <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
-                            </td>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <td class="align-middle">
+                                    <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i> Edit</a>
+                                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-eye"></i> Details</a>
+                                    <a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash"></i> Delete</a>
+                                </td>
+                            }
                         </tr>
                     }
-
                 </tbody>
-
             </table>
         </div>
     </div>
 </div>
-
 @await Html.PartialAsync("_CreateItem", "Producers")
-
-<style>
-   
-
-    .producer-image {
-        width: 200px; /* Set the desired width */
-        height: 200px; /* Set the desired height */
-        overflow: hidden;
-        border-radius: 50%; /* Make it a circle */
-    }
-
-        .producer-image img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover; /* Asigură că imaginea acoperă întregul container fără a fi distorsionată */
-            border-radius: 50%; /* Rotunjește imaginea */
-        }
-</style>

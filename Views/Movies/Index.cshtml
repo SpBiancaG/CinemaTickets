@@ -1,20 +1,59 @@
 ﻿@model IEnumerable<Movie>
-@*Define ViewData*@
+
 @{
     ViewData["Title"] = "All movies";
 }
+
+<style>
+    body {
+        background-color: DimGrey;
+        font-family: 'Century Schoolbook', sans-serif;
+    }
+
+    .text-darkgray {
+        color: #444;
+    }
+
+    .bg-darkgray {
+        background-color: #444;
+    }
+
+    .text-gray {
+        color: gray;
+    }
+
+    .bg-gray {
+        background-color: gray;
+    }
+
+    .bg-white {
+        background-color: white;
+    }
+
+    .text-mediumvioletred {
+        color: mediumvioletred;
+    }
+
+    .bg-mediumvioletred {
+        background-color: mediumvioletred;
+    }
+</style>
+
 <div class="row">
     @foreach (var item in Model)
     {
         <div class="col-md-4 col-xs-6 col-md-3 border-primary mb-3">
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3 bg-white" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-12">
-                        <div class="card-header text-white bg-info">
+                        <div class="card-header bg-mediumvioletred text-white">
                             <p class="card-text">
                                 <h5 class="card-title">
-                                    @item.Name
-                                    <a class="text-white float-right" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+                                    <span class="text-darkgray">@item.Name</span>
+                                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                    {
+                                        <a class="text-white float-right" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+                                    }
                                 </h5>
                             </p>
                         </div>
@@ -25,12 +64,12 @@
                     <div class="col-md-6">
                         <div class="card-body">
                             <p class="card-text">@item.Description</p>
-                            <p class="card-text"><b>Cinema: </b>@item.Cinema?.Name</p>
-                            <p class="card-text"><b>Category: </b>@item.MovieCategory</p>
-                            <p class="card-text"><b>Start Date: </b>@item.StartDate.ToString("dd MMM yyyy")</p>
-                            <p class="card-text"><b>End Date: </b>@item.EndDate.ToString("dd MMM yyyy")</p>
-                            <p class="card-text ">
-                                <b>Status: </b>
+                            <p class="card-text"><b class="text-darkgray">Cinema: </b><span class="text-gray">@item.Cinema?.Name</span></p>
+                            <p class="card-text"><b class="text-darkgray">Category: </b><span class="text-gray">@item.MovieCategory</span></p>
+                            <p class="card-text"><b class="text-darkgray">Start Date: </b><span class="text-gray">@item.StartDate.ToString("dd MMM yyyy")</span></p>
+                            <p class="card-text"><b class="text-darkgray">End Date: </b><span class="text-gray">@item.EndDate.ToString("dd MMM yyyy")</span></p>
+                            <p class="card-text">
+                                <b class="text-darkgray">Status: </b>
                                 @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
                                 {
                                     <span class="badge bg-success text-white">AVAILABLE</span>
@@ -47,12 +86,12 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="card-footer ">
+                        <div class="card-footer bg-mediumvioletred">
                             <p class="card-text">
-                                <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
+                                <a class="btn bg-darkgray float-right text-white" asp-action="Details" asp-route-id="@item.Id">
                                     <i class="bi bi-eye-fill"></i> Show Details
                                 </a>
-                                <a class="btn btn-success text-white"><i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("c"))</a>
+                                <a class="btn  text-white bg-darkgray" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id"><i class="bi bi-cart-plus"></i> Add to Cart (Price @item.Price.ToString("c"))</a>
                             </p>
                         </div>
                     </div>

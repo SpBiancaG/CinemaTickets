@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace CinemaTickets.Models
 {
@@ -9,6 +10,8 @@ namespace CinemaTickets.Models
 
         public Movie Movie { get; set; }
         public int Amount { get; set; }
+
+        //tb sa vedem cum facem sa se elibereze cosul de cumparaturi dupa ce s-a facut comanda
         public string ShoppingCartId { get; set; }
     }
 }

@@ -1,21 +1,62 @@
 ﻿@model Producer
-
 @{
-    ViewData["Title"] = "Add a new producer";
+    ViewData["Title"] = "Add a new Producer";
 }
+
+<style>
+    body {
+        background-color: #F2F2F2;
+        color: saddlebrown;
+        font-family: 'Century Schoolbook', sans-serif;
+    }
+
+    .form-group label {
+        color: mediumvioletred;
+    }
+
+    .form-control {
+        background-color: darkgrey;
+        color: white;
+    }
+
+    .text-danger {
+        color: #DC3545;
+    }
+
+    .btn-outline-success {
+        background-color: white;
+        color: mediumvioletred;
+        border-color: mediumvioletred;
+    }
+
+        .btn-outline-success:hover {
+            background-color: mediumvioletred;
+            color: white;
+        }
+
+    .btn-outline-secondary {
+        background-color: white;
+        color: mediumvioletred;
+        border-color: mediumvioletred;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: mediumvioletred;
+            color: white;
+        }
+</style>
 
 <div class="row text">
     <div class="col-md-8 offset-2">
         <p>
-            <h1>Add a New Producer</h1>
+            <h1>Add a new producer</h1>
         </p>
         <div class="row">
             <div class="col-md-8 offset-2">
                 <form asp-action="Create">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
                     <div class="form-group text-center">
-                        <img id="ProfilePicturePreview" class="border-info rounded-circle" style="max-width: 150px" />
+                        <img id="ProfilePicturePreview" style="width: 200px; height: 200px; border-radius: 50%;" />
                     </div>
                     <div class="form-group">
                         <label asp-for="ProfilePictureURL" class="control-label"></label>
@@ -32,10 +73,9 @@
                         <input asp-for="Bio" class="form-control" />
                         <span asp-validation-for="Bio" class="text-danger"></span>
                     </div>
-
                     <div class="form-group">
                         <input type="submit" value="Create" class="btn btn-outline-success float-right" />
-                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                        <a class="btn btn-outline-secondary" asp-action="Index">See all Actors</a>
                     </div>
                 </form>
             </div>
@@ -43,17 +83,15 @@
     </div>
 </div>
 
-@section Scripts {
+@section Scripts{
     <script>
-
         $(document).ready(function () {
-            var output = document.getElementById('ProfilePicturePreview');
+            var output = document.getElementById("ProfilePicturePreview");
             output.src = $("#ProfilePictureURL").val();
-        })
-
+        });
         $("#ProfilePictureURL").on("change", function () {
-            var output = document.getElementById('ProfilePicturePreview');
+            var output = document.getElementById("ProfilePicturePreview");
             output.src = $(this).val();
-        })
+        });
     </script>
 }

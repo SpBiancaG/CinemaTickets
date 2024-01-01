@@ -2,7 +2,7 @@
 
 namespace CinemaTickets.Migrations
 {
-    public partial class ShoppingCartItems_Added : Migration
+    public partial class ShoppingCart : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
