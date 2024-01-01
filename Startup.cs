@@ -1,13 +1,8 @@
 using CinemaTickets.Data;
-using CinemaTickets.Data.Cart;
 using CinemaTickets.Data.Services;
-using CinemaTickets.Models;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +11,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Http;
+using CinemaTickets.Data.Cart;
+using CinemaTickets.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 
 namespace CinemaTickets
 {
@@ -25,23 +26,21 @@ namespace CinemaTickets
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //configurarea dbcontext-ului
+            //am adaugat configuratiile pt dbcontext
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
-
-            //configurarea serviciilor
+            //configurari de servicii
             services.AddScoped<IActorsService, ActorsService>();
             services.AddScoped<IProducersService, ProducersService>();
             services.AddScoped<ICinemasService, CinemasService>();
             services.AddScoped<IMoviesService, MoviesService>();
+            services.AddScoped<IOrdersService, OrdersService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));//Singleton
+            services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
 
             //autentificarea si autorizarea
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
@@ -50,10 +49,10 @@ namespace CinemaTickets
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            }); 
+            });
+
             services.AddControllersWithViews();
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -71,9 +70,11 @@ namespace CinemaTickets
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
-            app.UseSession();//tot pt singleton
-
+            //autentificare si autorizare
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -82,9 +83,10 @@ namespace CinemaTickets
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            //seed database
+            //initializarea bazei de date
             AppDbInitializer.Seed(app);
+            AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
+
         }
     }
 }
