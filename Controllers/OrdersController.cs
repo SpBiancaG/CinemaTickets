@@ -60,7 +60,7 @@ namespace CinemaTickets.Controllers
             return RedirectToAction(nameof(ShoppingCart));
         }
 
-        public async Task<IActionResult> SendOrder()
+        public async Task<IActionResult> CompleteOrder()
         {
             var items = _shoppingCart.GetShoppingCartItems();
             string userId = "";

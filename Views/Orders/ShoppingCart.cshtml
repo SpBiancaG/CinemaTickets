@@ -58,13 +58,10 @@
                 </tr>
             </tfoot>
         </table>
-        <div class="text-center">
+        <div class="text-right">
             <div class="btn-group">
-                <a class="btn btn-outline-dark" asp-action="SendOrder">
-                    
-                   
-                    Send order
-                </a>
+                <div id="paypal-btn"></div>
+                <span style="padding:5px"></span>
                 <a class="btn btn-outline-success" asp-controller="Movies" asp-action="Index">
                     Add more items
                 </a>
@@ -72,3 +69,52 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+    <script>
+
+        let _total = @Json.Serialize(Model.ShoppingCartTotal);
+
+
+        paypal.Button.render({
+            //Configure environment
+            env: 'sandbox',
+            client: {
+                sandbox: 'AQjJMUrrgVdVIQRHjPRvXpMvktDpb-3N4fxfDwUW0AL4G-wbcdurzw1qp0ZR4taciqS_PAdRtGMlDcM2'
+            },
+
+            //Customize button
+            locale: 'en_US',
+            style: {
+                size: 'small',
+                color: 'gold',
+                shape: 'pill'
+            },
+            commit: true,
+
+            //Set up a payment
+            payment: function (data, actions) {
+                return actions.payment.create({
+                    transactions: [{
+                        amount: {
+                            total: _total,
+                            currency: 'EUR'
+                        }
+                    }]
+                });
+            },
+
+            //Execute the payment
+            onAuthorize: function (data, actions) {
+                return actions.payment.execute().then(function () {
+                    var url = '@Url.Action("CompleteOrder", "Orders", new { })';
+                    window.location.href = url;
+                });
+            }
+
+        }, '#paypal-btn')
+    </script>
+}

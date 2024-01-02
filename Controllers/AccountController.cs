@@ -86,6 +86,14 @@ namespace CinemaTickets.Controllers
                 await _context.SaveChangesAsync();
                 return View("RegisterCompleted");
             }
+            else
+            {
+                foreach (var error in newUserResponse.Errors)
+                {
+                    TempData["Error"] = error.Description;
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
 
 
             return View(registerVM);
