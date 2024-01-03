@@ -15,9 +15,15 @@ namespace CinemaTickets.Controllers
     public class MoviesController : Controller
     {
         private readonly IMoviesService _service;
-        public MoviesController(IMoviesService service)
+        private readonly IMovieStatusSubject _movieStatusSubject;
+        public MoviesController(IMoviesService service, IMovieStatusSubject movieStatusSubject)
         {
             _service = service;
+            _movieStatusSubject = movieStatusSubject;
+
+            // Initialize and register the observer
+            var movieStatusObserver = new MovieStatusObserver();
+            _movieStatusSubject.RegisterObserver(movieStatusObserver);
         }
         [AllowAnonymous]
         public async Task<IActionResult> Index()

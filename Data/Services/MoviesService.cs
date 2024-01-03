@@ -2,16 +2,19 @@
 using CinemaTickets.Data.ViewModels;
 using CinemaTickets.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 namespace CinemaTickets.Data.Services
 {
-    public class MoviesService : EntityBaseRepository<Movie>, IMoviesService
+    public class MoviesService : EntityBaseRepository<Movie>, IMoviesService,IMovieStatusSubject
     {
         private readonly AppDbContext _context;
+        private readonly List<IMovieStatusObserver> _observers;
         public MoviesService(AppDbContext context) : base(context)
         {
             _context = context;
+            _observers = new List<IMovieStatusObserver>();
         }
 
         public async Task AddNewMovieAsync(NewMovieVM data)
@@ -106,6 +109,25 @@ namespace CinemaTickets.Data.Services
                 await _context.Actors_Movies.AddAsync(newActorMovie);
             }
             await _context.SaveChangesAsync();
+            NotifyObservers(dbMovie);
         }
+
+        public void RegisterObserver(IMovieStatusObserver observer)
+    {
+        _observers.Add(observer);
+    }
+
+    public void RemoveObserver(IMovieStatusObserver observer)
+    {
+        _observers.Remove(observer);
+    }
+
+    public void NotifyObservers(Movie movie)
+    {
+        foreach (var observer in _observers)
+        {
+            observer.UpdateMovieStatus(movie);
+        }
+    }
     }
 }
